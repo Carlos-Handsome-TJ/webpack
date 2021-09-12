@@ -9,7 +9,9 @@ module.exports = {
     entry: './src/index.js',
     /*打包文件出口*/
     output: {
+        /*输出文件名*/
         filename: 'built.js',
+        /*输出路径*/
         path: resolve(__dirname, 'build')
     },
     /*loaders相关配置*/
