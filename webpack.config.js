@@ -5,6 +5,8 @@
 const {resolve} = require('path')
 
 module.exports = {
+    /*模式*/
+    mode: 'development',
     /*打包入口文件*/
     entry: './src/index.js',
     /*打包文件出口*/
@@ -30,6 +32,6 @@ module.exports = {
             }
         ]
     },
-    /*模式*/
-    mode: 'development'
+    /*plugin相关配置*/
+    plugins: []
 }
