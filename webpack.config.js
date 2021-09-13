@@ -1,12 +1,14 @@
 /**
- *
+ *plugin与loader的区别：
+ * plugin需要导入，loader直接使用
  */
 
 const {resolve} = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     /*模式*/
-    mode: 'development',
+    mode: 'production',
     /*打包入口文件*/
     entry: './src/index.js',
     /*打包文件出口*/
@@ -33,5 +35,13 @@ module.exports = {
         ]
     },
     /*plugin相关配置*/
-    plugins: []
+    plugins: [
+        /*html-webpack-plugin
+        * new HtmlWebpackPlugin会创建以./src/index.html为模板的html文件，并引入打包生成的js文件
+        * */
+
+        new HtmlWebpackPlugin({
+            template: './src/index.html'
+        })
+    ]
 }
