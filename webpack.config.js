@@ -64,6 +64,11 @@ module.exports = {
                 }
             },
             {
+                /** exclude表示除了设定的值不使用loader编译，其余的都一律使用当前loader编译*/
+                // exclude: /\.(js|css|html|png|jpg|gif)/,
+                // loader: 'file-loader'
+            },
+            {
                 /**html中插入图片解析打包，默认使用commonjs解析*/
                 test: /\.html$/,
                 loader: 'html-loader',
@@ -78,5 +83,17 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html'
         })
-    ]
+    ],
+    /**配置开发模式：devServer，自动化构建工具，将代码打包在内存中运行
+     * 运行指令：npx webpack-dev-server
+     * */
+    devServer: {
+        /*打包生成的文件夹地址*/
+        contentBase: resolve(__dirname, 'build'),
+        /*是否压缩代码*/
+        compress: true,
+        /*代码压缩完，打开默认浏览器*/
+        open: true,
+        port: 3000
+    }
 }
